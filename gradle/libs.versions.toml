@@ -2,10 +2,12 @@
 androidx-junit = "1.1.5"
 appcompat = "1.6.1"
 constraintlayout = "2.1.4"
-core-ktx = "1.9.0"
+core-ktx = "1.12.0"
 espresso-core = "3.5.1"
 junit = "4.13.2"
 material = "1.10.0"
+android-gradle="8.1.4"
+kotlin="1.9.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -17,3 +19,5 @@ junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 
 [plugins]
+android-application={id="com.android.application",version.ref="android-gradle"}
+android-kotlin={id="org.jetbrains.kotlin.android",version.ref="kotlin"}
