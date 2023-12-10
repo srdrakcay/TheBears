@@ -8,6 +8,9 @@ junit = "4.13.2"
 material = "1.10.0"
 android-gradle="8.1.4"
 kotlin="1.9.0"
+google-services="4.4.0"
+bom="32.7.0"
+hilt = "2.47"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -17,7 +20,16 @@ androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", vers
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
 junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
-
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "bom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics"}
+hilt-android = {group = "com.google.dagger",name = "hilt-android",version.ref = "hilt"}
+hilt-compiler = {group = "com.google.dagger",name = "hilt-android-compiler",version.ref = "hilt"}
 [plugins]
 android-application={id="com.android.application",version.ref="android-gradle"}
 android-kotlin={id="org.jetbrains.kotlin.android",version.ref="kotlin"}
+google-services={id="com.google.gms.google-services",version.ref="google-services"}
+com-android-library = { id = "com.android.library", version.ref = "android-gradle" }
+hilt = {id = "com.google.dagger.hilt.android",version.ref = "hilt"}
+
+[bundles]
+firebase=["firebase-analytics"]

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "798451415197",
+    "project_id": "thebears-b0f9d",
+    "storage_bucket": "thebears-b0f9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798451415197:android:adf4803a8a853a76a43c74",
+        "android_client_info": {
+          "package_name": "com.serdar.thebears"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6EjNes9qrDfeZswa2vbVb57H7Q0VQjP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
