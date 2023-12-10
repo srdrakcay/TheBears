@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+
 }
 
 android {
@@ -38,6 +40,7 @@ android {
 }
 
 dependencies {
+
 
     //AndroidX
     implementation(libs.androidx.core.ktx)

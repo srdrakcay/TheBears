@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
 
 }
 
