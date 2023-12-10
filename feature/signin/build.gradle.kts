@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.kotlin.kapt)
 
 }
 
@@ -34,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
 
     //AndroidX
     implementation(libs.androidx.core.ktx)
@@ -46,9 +48,20 @@ dependencies {
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.bundles.firebase)
+    implementation(libs.firebase.auth.ktx)
 
     //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    // LiveData
+    implementation(libs.androidx.lifecycle.livedata)
 }

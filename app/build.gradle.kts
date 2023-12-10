@@ -2,8 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
-    id("kotlin-kapt")
-
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -58,7 +57,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Hilt
-    // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    // LiveData
+    implementation(libs.androidx.lifecycle.livedata)
 }

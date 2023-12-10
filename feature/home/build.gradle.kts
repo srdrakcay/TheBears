@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.kotlin.kapt)
 
 }
 
@@ -51,4 +52,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    // LiveData
+    implementation(libs.androidx.lifecycle.livedata)
 }

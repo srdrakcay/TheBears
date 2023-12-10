@@ -11,6 +11,9 @@ kotlin="1.9.0"
 google-services="4.4.0"
 bom="32.7.0"
 hilt = "2.47"
+firebase-auth-ktx="22.3.0"
+androidxLifeCycle = "2.6.1"
+
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -24,12 +27,16 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "bom
 firebase-analytics = { module = "com.google.firebase:firebase-analytics"}
 hilt-android = {group = "com.google.dagger",name = "hilt-android",version.ref = "hilt"}
 hilt-compiler = {group = "com.google.dagger",name = "hilt-android-compiler",version.ref = "hilt"}
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version = "firebase-auth-ktx" }
+androidx-lifecycle-viewmodel = {group = "androidx.lifecycle",name = "lifecycle-viewmodel-ktx",version.ref = "androidxLifeCycle"}
+androidx-lifecycle-livedata = {group = "androidx.lifecycle",name = "lifecycle-livedata-ktx",version.ref = "androidxLifeCycle"}
 [plugins]
 android-application={id="com.android.application",version.ref="android-gradle"}
 android-kotlin={id="org.jetbrains.kotlin.android",version.ref="kotlin"}
 google-services={id="com.google.gms.google-services",version.ref="google-services"}
 com-android-library = { id = "com.android.library", version.ref = "android-gradle" }
 hilt = {id = "com.google.dagger.hilt.android",version.ref = "hilt"}
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 [bundles]
 firebase=["firebase-analytics"]
