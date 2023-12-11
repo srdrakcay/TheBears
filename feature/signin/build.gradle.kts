@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":navigation"))
     implementation(project(":localization"))
     //AndroidX
     implementation(libs.androidx.core.ktx)
@@ -71,4 +72,8 @@ dependencies {
 
     // LiveData
     implementation(libs.androidx.lifecycle.livedata)
+
+    //Navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 }

@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNavigation, navHostFragment.navController)
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.signInFragment -> bottomNavigation.notShow()
-                R.id.signUpFragment -> bottomNavigation.notShow()
-                else -> bottomNavigation.show()
+                R.id.homeFragment -> bottomNavigation.show()
+                R.id.profileFragment -> bottomNavigation.show()
+                else -> bottomNavigation.notShow()
             }
         }
     }
