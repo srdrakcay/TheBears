@@ -1,26 +1,19 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.android.kotlin)
-    alias(libs.plugins.google.services)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.android.navigation.safeargs)
-
 }
 
 android {
-    namespace = "com.serdar.thebears"
+    namespace = "com.serdar.navigation"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.serdar.thebears"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -40,43 +33,22 @@ android {
         jvmTarget = "1.8"
     }
     sourceSets {
-        getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
+        getByName("main").res.srcDirs(
+            "$rootDir/navigation/src/main/sharedRes", "build/generated/source/navigation-args-kotlin"
+        )
     }
 }
 
 dependencies {
-    implementation(project(":common"))
 
-
-
-
-    //AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
-
-    //Material
     implementation(libs.material)
-
-    //Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.bundles.firebase)
-
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-
-    //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel)
-
-    // LiveData
-    implementation(libs.androidx.lifecycle.livedata)
+    // Navigation Component
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 }
