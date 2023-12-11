@@ -38,6 +38,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
     sourceSets {
         getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
     }
@@ -47,7 +50,7 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":feature:signup"))
     implementation(project(":feature:signin"))
-
+    implementation(project(":feature:home"))
     //AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

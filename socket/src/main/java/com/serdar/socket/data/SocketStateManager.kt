@@ -9,4 +9,5 @@ sealed class SocketStateManager{
     data object Disconnecting : SocketStateManager()
     data object Disconnected : SocketStateManager()
     data class Error(val error : String) : SocketStateManager()
+
 }

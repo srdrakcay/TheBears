@@ -82,4 +82,7 @@ dependencies {
 
     //Gson
     implementation(libs.gson)
+
+    //Square OkHttp-Retrofit-Moshi
+    implementation(libs.okhttp)
 }

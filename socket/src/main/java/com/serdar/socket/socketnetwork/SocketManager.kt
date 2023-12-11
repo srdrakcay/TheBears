@@ -42,7 +42,6 @@ class SocketManager @Inject constructor(
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 super.onOpen(webSocket, response)
                 trySendBlocking(SocketStateManager.Connected)
-                subscribe()
             }
 
             override fun onMessage(webSocket: WebSocket, text: String) {

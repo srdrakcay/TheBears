@@ -14,9 +14,41 @@ import kotlinx.coroutines.launch
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val viewModel by viewModels<HomeViewModel>()
 
-    private fun setSocketChannelNames() {
-        viewModel.subscribeSocket(listOf("", "", "", ""))
+    override fun observeUi() {
+        super.observeUi()
+        setSocketEvent()
     }
+
+    private fun setSubscribeSocketChannelNames() {
+        val channelNames = listOf(
+            "btcusd",
+            "btceur",
+            "btcgbp",
+            "btcpax",
+            "gbpusd",
+            "eurusd",
+            "xrpusd",
+            "xrpeur",
+            "xrpbtc",
+        )
+        viewModel.subscribeSocket(channelNames)
+    }
+
+    private fun setUnsubscribeSocketChannelNames() {
+        val channelNames = listOf(
+            "btcusd",
+            "btceur",
+            "btcgbp",
+            "btcpax",
+            "gbpusd",
+            "eurusd",
+            "xrpusd",
+            "xrpeur",
+            "xrpbtc",
+        )
+        viewModel.subscribeSocket(channelNames)
+    }
+
 
     private fun setSocketEvent() {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -24,18 +56,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 .collect {
                     when (it) {
                         SocketStateManager.Connected -> {
+                            setSubscribeSocketChannelNames()
                         }
 
                         SocketStateManager.Connecting -> {
                         }
 
                         SocketStateManager.Disconnected -> {
+                            setUnsubscribeSocketChannelNames()
                         }
 
                         SocketStateManager.Disconnecting -> {
+                            setUnsubscribeSocketChannelNames()
                         }
 
                         is SocketStateManager.Error -> {
+
                         }
 
                         is SocketStateManager.Price -> {
