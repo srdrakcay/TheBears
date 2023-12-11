@@ -23,7 +23,7 @@ class SocketManager @Inject constructor(
     private val okhttpClient: OkHttpClient,
     private val webSocketRequest: Request,
 ) {
-    private lateinit var socket: WebSocket
+     lateinit var socket: WebSocket
     private var prevValue: Double = 0.0
     private var nextValue: Double = 0.0
     private var differenceRes = Difference.Stable
@@ -103,10 +103,10 @@ class SocketManager @Inject constructor(
     private fun unsubscribe() {
         socket.send(gson.toJson(UNSUBSCRIBE_MESSAGE))
     }
-
     companion object {
         private val SUBSCRIBE_MESSAGE = SubscriptionSocket(event = "bts:subscribe")
         private val UNSUBSCRIBE_MESSAGE = SubscriptionSocket(event = "bts:unsubscribe")
     }
+
 }
 

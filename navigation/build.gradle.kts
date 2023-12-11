@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.android.navigation.safeargs)
+
 }
 
 android {
@@ -34,7 +35,8 @@ android {
     }
     sourceSets {
         getByName("main").res.srcDirs(
-            "$rootDir/navigation/src/main/sharedRes", "build/generated/source/navigation-args-kotlin"
+            "$rootDir/navigation/src/main/sharedRes",
+            "build/generated/source/navigation-args-kotlin"
         )
     }
 }

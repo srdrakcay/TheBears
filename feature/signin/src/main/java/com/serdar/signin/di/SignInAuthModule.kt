@@ -1,5 +1,6 @@
 package com.serdar.signin.di
 
+import com.serdar.signin.data.FirebaseSignInAuth
 import com.serdar.signin.data.FirebaseSignInAuthImpl
 import dagger.Binds
 import dagger.Module
@@ -15,5 +16,5 @@ abstract class SignInAuthModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindFirebaseSignInAuth(firebaseSignInAuthImpl: FirebaseSignInAuthImpl): FirebaseSignInAuthImpl
+    abstract fun bindFirebaseSignInAuth(firebaseSignInAuthImpl: FirebaseSignInAuthImpl): FirebaseSignInAuth
 }

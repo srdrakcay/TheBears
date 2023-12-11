@@ -45,9 +45,8 @@ android {
 
 dependencies {
     implementation(project(":common"))
-
-
-
+    implementation(project(":feature:signup"))
+    implementation(project(":feature:signin"))
 
     //AndroidX
     implementation(libs.androidx.core.ktx)
