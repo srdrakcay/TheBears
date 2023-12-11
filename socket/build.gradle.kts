@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.serdar.signup"
+    namespace = "com.serdar.socket"
     compileSdk = 34
 
     defaultConfig {
@@ -37,8 +37,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":common"))
-
     //AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -66,4 +64,10 @@ dependencies {
 
     // LiveData
     implementation(libs.androidx.lifecycle.livedata)
+
+    //Gson
+    implementation(libs.gson)
+
+    //Square OkHttp-Retrofit-Moshi
+    implementation(libs.okhttp)
 }

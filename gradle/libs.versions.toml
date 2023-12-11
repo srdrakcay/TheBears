@@ -4,6 +4,7 @@ appcompat = "1.6.1"
 constraintlayout = "2.1.4"
 core-ktx = "1.12.0"
 espresso-core = "3.5.1"
+gson = "2.10"
 junit = "4.13.2"
 material = "1.10.0"
 android-gradle="8.1.4"
@@ -13,6 +14,7 @@ bom="32.7.0"
 hilt = "2.47"
 firebase-auth-ktx="22.3.0"
 androidxLifeCycle = "2.6.1"
+okhttp = "4.11.0"
 
 
 [libraries]
@@ -21,6 +23,7 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "bom" }
@@ -30,6 +33,7 @@ hilt-compiler = {group = "com.google.dagger",name = "hilt-android-compiler",vers
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version = "firebase-auth-ktx" }
 androidx-lifecycle-viewmodel = {group = "androidx.lifecycle",name = "lifecycle-viewmodel-ktx",version.ref = "androidxLifeCycle"}
 androidx-lifecycle-livedata = {group = "androidx.lifecycle",name = "lifecycle-livedata-ktx",version.ref = "androidxLifeCycle"}
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 [plugins]
 android-application={id="com.android.application",version.ref="android-gradle"}
 android-kotlin={id="org.jetbrains.kotlin.android",version.ref="kotlin"}
