@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
+    <item android:title="@string/tab_home"
         android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
         />
-    <item android:title="Profile"
+    <item android:title="@string/tab_profile"
+        android:icon="@drawable/ic_person"
         android:id="@+id/profileFragment"
         />
-
 </menu>

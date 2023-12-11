@@ -27,7 +27,7 @@ class HomeViewModel @Inject constructor(
          }
     }
 
-    private fun unsubscribeSocket(channelsName:List<String>) {
+     fun unsubscribeSocket(channelsName:List<String>) {
         val unsubscribeMessages = channelsName.map { channelName ->
             SubscriptionSocket("bts:unsubscribe", SubscriptionSocketData(channel = channelName))
         }

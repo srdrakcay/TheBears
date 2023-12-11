@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.services)
     alias(libs.plugins.hilt)
     alias(libs.plugins.android.navigation.safeargs)
 
@@ -25,6 +26,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            multiDexEnabled=true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -48,9 +50,13 @@ android {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":localization"))
     implementation(project(":feature:signup"))
     implementation(project(":feature:signin"))
     implementation(project(":feature:home"))
+    implementation(project(":feature:profile"))
+
+
     //AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

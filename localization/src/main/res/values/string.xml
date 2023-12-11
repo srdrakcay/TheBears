@@ -6,5 +6,7 @@
     <string name="txt_register_title">Lets Get Started </string>
     <string name="txt_btn_login">Log In</string>
     <string name="txt_btn_register">Register</string>
+    <string name="tab_home" >Home</string>
+    <string name="tab_profile" >Profile</string>
 
 </resources>

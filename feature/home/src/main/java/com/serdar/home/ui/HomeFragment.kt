@@ -46,9 +46,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             "xrpeur",
             "xrpbtc",
         )
-        viewModel.subscribeSocket(channelNames)
+        viewModel.unsubscribeSocket(channelNames)
     }
-
 
     private fun setSocketEvent() {
         viewLifecycleOwner.lifecycleScope.launch {
