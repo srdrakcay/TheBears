@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_login_desc">Don\'t have an account ? Register</string>
+    <string name="txt_register_desc">Already have an account? Log In</string>
+    <string name="txt_login_title">Welcome Back! </string>
+    <string name="txt_register_title">Lets Get Started </string>
+    <string name="txt_btn_login">Log In</string>
+    <string name="txt_btn_register">Register</string>
+
+</resources>

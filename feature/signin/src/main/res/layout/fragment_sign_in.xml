@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUpFragment">
+    tools:context=".ui.SignInFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtSignInEmailLayout"
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
-        android:text="@string/txt_register_title"
+        android:text="@string/txt_login_title"
         android:textColor="#10637B"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -79,7 +79,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/bg_rounded_button"
         android:backgroundTint="#10637B"
-        android:text="@string/txt_btn_register"
+        android:text="@string/txt_btn_login"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#ffffff"
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/txt_register_desc"
+        android:text="@string/txt_login_desc"
         app:layout_constraintEnd_toEndOf="@+id/divider"
         app:layout_constraintStart_toStartOf="@+id/divider"
         app:layout_constraintTop_toBottomOf="@+id/divider" />

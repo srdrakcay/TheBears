@@ -1,20 +1,18 @@
-@Suppress("DSL_SCOPE_VIOLATION")
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.android.kotlin)
-    alias(libs.plugins.google.services)
-    alias(libs.plugins.kotlin.kapt)
-
 }
 
 android {
-    namespace = "com.serdar.signin"
+    namespace = "com.serdar.localization"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -33,39 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(":common"))
-    implementation(project(":localization"))
-    //AndroidX
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
-
-    //Material
     implementation(libs.material)
-
-    //Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.bundles.firebase)
-    implementation(libs.firebase.auth.ktx)
-
-    //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel)
-
-    // LiveData
-    implementation(libs.androidx.lifecycle.livedata)
 }

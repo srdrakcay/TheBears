@@ -41,6 +41,8 @@ android {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":localization"))
+
 
     //AndroidX
     implementation(libs.androidx.core.ktx)
