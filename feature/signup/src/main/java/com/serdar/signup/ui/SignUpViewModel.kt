@@ -17,10 +17,10 @@ class SignUpViewModel @Inject constructor(private val signUpWithEmailUseCase: Si
     ViewModel() {
 
     private val _signUpUiState = MutableStateFlow<SignUpUiState>(SignUpUiState.Loading)
-    val signInUiState: MutableStateFlow<SignUpUiState> = _signUpUiState
+    val signUpUiState: MutableStateFlow<SignUpUiState> = _signUpUiState
 
 
-    fun signInWithFirebaseAuth(email: String, password: String) {
+    fun signUpWithFirebaseAuth(email: String, password: String) {
         viewModelScope.launch {
             signUpWithEmailUseCase(email, password).onEach {
                 when (it) {

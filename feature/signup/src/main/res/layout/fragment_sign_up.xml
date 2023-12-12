@@ -17,7 +17,7 @@
         app:boxCornerRadiusBottomStart="8sp"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
-        app:boxStrokeWidth="0sp"
+        app:boxStrokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -27,6 +27,7 @@
             android:id="@+id/editTxtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Email"
             android:textSize="12sp"
             app:counterMaxLength="20" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,7 +43,7 @@
         app:boxCornerRadiusBottomStart="8sp"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
-        app:boxStrokeWidth="0sp"
+        app:boxStrokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="@+id/txtSignInEmailLayout"
         app:layout_constraintStart_toStartOf="@+id/txtSignInEmailLayout"
         app:layout_constraintTop_toBottomOf="@+id/txtSignInEmailLayout"
@@ -52,6 +53,7 @@
             android:id="@+id/editTxtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Password"
             android:textSize="12sp"
             app:counterMaxLength="20" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -71,7 +73,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnLogIn"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
@@ -101,10 +103,10 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <TextView
-        android:id="@+id/txtCreateNewAccount"
+        android:id="@+id/txtLoginAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

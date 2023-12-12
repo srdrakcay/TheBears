@@ -44,6 +44,8 @@ android {
 dependencies {
     implementation(project(":common"))
     implementation(project(":localization"))
+    implementation(project(":navigation"))
+    implementation(project(":feature:signin"))
 
 
     //AndroidX
@@ -73,4 +75,8 @@ dependencies {
 
     // LiveData
     implementation(libs.androidx.lifecycle.livedata)
+
+    //Navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 }

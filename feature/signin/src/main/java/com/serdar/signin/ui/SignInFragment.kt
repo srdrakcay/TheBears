@@ -23,6 +23,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
         setCurrentUser()
         initObserveLogin()
         login()
+        navigateUi()
     }
 
     private fun setCurrentUser() {
@@ -71,6 +72,11 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
                 val passwordText = binding.editTxtPassword.text.toString()
                 viewModel.signInWithFirebaseAuth(emailText, passwordText)
             }
+        }
+    }
+    private fun navigateUi(){
+        binding.txtCreateNewAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
     }
 }

@@ -8,6 +8,6 @@ open class ValidationRule(
     val predicate: Predicate<String>
 ){
     companion object{
-        const val PASSWORD_LENGTH=10
+        const val PASSWORD_LENGTH=6
     }
 }
