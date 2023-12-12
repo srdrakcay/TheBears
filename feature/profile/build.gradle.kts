@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":navigation"))
 
     //AndroidX
     implementation(libs.androidx.core.ktx)

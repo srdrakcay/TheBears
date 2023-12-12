@@ -33,5 +33,12 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.serdar.profile.ui.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

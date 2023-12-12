@@ -7,7 +7,7 @@
     tools:context=".ui.ProfileFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtUserEmailInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile Fragment"
@@ -16,5 +16,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_rounded_button"
+        android:backgroundTint="#10637B"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="SignOut"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtUserEmailInfo"
+        app:layout_constraintStart_toStartOf="@+id/txtUserEmailInfo"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserEmailInfo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
