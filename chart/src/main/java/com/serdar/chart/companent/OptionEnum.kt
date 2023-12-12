@@ -1,4 +1,4 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 enum class OptionEnum {
     ONE_DAY,

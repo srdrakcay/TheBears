@@ -1,4 +1,6 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
+
+import com.serdar.chart.companent.CoinChartData
 
 data class CoinPointData(
     val coinChartData: CoinChartData,

@@ -1,16 +1,18 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import com.serdar.chart.R
+import com.serdar.home.companent.CoinTradeView
+import com.serdar.home.companent.dp
 
 class CoinChartContainer @JvmOverloads constructor(
     context: Context,
@@ -26,8 +28,8 @@ class CoinChartContainer @JvmOverloads constructor(
     private var coinTradeView: CoinTradeView? = null
 
     private var layoutWidth: Float = 0f
-    private var layoutHeight: Float = 36.dp().toFloat()
-    private var tradeLayoutHeight: Float = 196.dp().toFloat()
+    private var layoutHeight: Float = 36.dp(context).toFloat()
+    private var tradeLayoutHeight: Float = 196.dp(context).toFloat()
 
     private var itemWidth: Float = 0f
     private var itemHeight: Float = 0f
@@ -69,7 +71,7 @@ class CoinChartContainer @JvmOverloads constructor(
     init {
         orientation = VERTICAL
         val layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, tradeLayoutHeight.toInt())
-        layoutParams.setMargins(0, 0, 0, 16.dp())
+        layoutParams.setMargins(0, 0, 0, 16.dp(context))
         coinTradeView = CoinTradeView(context, attributeSet, defStyleAttr).apply {
             this.layoutParams = layoutParams
         }
@@ -97,7 +99,8 @@ class CoinChartContainer @JvmOverloads constructor(
                 0
             )
             layoutParams = indicatorLayoutParams
-
+            background =
+                ContextCompat.getDrawable(context, R.drawable.background_interval_selector)
         }
         optionContainer.addView(indicatorView)
 
@@ -116,6 +119,7 @@ class CoinChartContainer @JvmOverloads constructor(
             optionLayout.addView(TextView(context).apply {
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
                 gravity = Gravity.CENTER
+                // typeface = ResourcesCompat.getFont(context, coreUiRes.font.manrope_semi_bold)
                 layoutParams = LayoutParams(itemWidth.toInt(), layoutHeight.toInt())
                 text = option.getName(context)
 
@@ -161,13 +165,5 @@ class CoinChartContainer @JvmOverloads constructor(
     companion object {
         const val TAG_CONTAINER = "TAG_CONTAINER"
         const val ANIMATION_DURATION = 300L
-    }
-
-    fun Int.dp(): Int {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics
-        ).toInt()
     }
 }

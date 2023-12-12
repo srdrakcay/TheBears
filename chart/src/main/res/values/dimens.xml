@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DP -->
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp6">6dp</dimen>
+    <dimen name="dp7">7dp</dimen>
+    <dimen name="dp7.24">7.24dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp9.33">9.33dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp11">11dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp14">14dp</dimen>
+    <dimen name="dp13.33">13.33dp</dimen>
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp17">17dp</dimen>
+    <dimen name="dp18">18dp</dimen>
+    <dimen name="dp19">19dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp22">22dp</dimen>
+    <dimen name="dp24">24dp</dimen>
+    <dimen name="dp26">26dp</dimen>
+    <dimen name="dp28">28dp</dimen>
+    <dimen name="dp29">29dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp32">32dp</dimen>
+    <dimen name="dp33">33dp</dimen>
+    <dimen name="dp34">34dp</dimen>
+    <dimen name="dp35">35dp</dimen>
+    <dimen name="dp36">36dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp42">42dp</dimen>
+    <dimen name="dp44">44dp</dimen>
+    <dimen name="dp45">45dp</dimen>
+    <dimen name="dp48">48dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp56">56dp</dimen>
+    <dimen name="dp58.67">58.67dp</dimen>
+    <dimen name="dp59.5">59.5dp</dimen>
+    <dimen name="dp64">64dp</dimen>
+    <dimen name="dp74">74dp</dimen>
+    <dimen name="dp75.5">75.5dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+    <dimen name="dp88">88dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp134">134dp</dimen>
+    <dimen name="dp142">142dp</dimen>
+
+    <!-- SP -->
+    <dimen name="sp4">4sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="sp20">20sp</dimen>
+    <dimen name="sp22">22sp</dimen>
+    <dimen name="sp24">24sp</dimen>
+    <dimen name="sp26">26sp</dimen>
+    <dimen name="sp32">32sp</dimen>
+    <dimen name="sp48">48sp</dimen>
+</resources>

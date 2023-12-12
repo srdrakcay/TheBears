@@ -1,4 +1,4 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 data class CoinChartData(
     val time: String,

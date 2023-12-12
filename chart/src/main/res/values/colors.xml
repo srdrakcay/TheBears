@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#F8F9FA</color>
+    <color name="background_gradient_end_color">#80F8F9FA</color>
+    <color name="tabIndicator">#155AEE</color>
+    <color name="textDarkGray">#2B2F44</color>
+    <color name="textLightGray">#BCBEC8</color>
+    <color name="textGray">#979AAA</color>
+    <color name="loadingState">#F1F3F5</color>
+    <color name="item_separator">#E9ECF0</color>
+    <color name="textSearch">#3F4462</color>
+    <color name="unselectedTabTextColor">#94999D</color>
+    <color name="etSearchStroke">#D6DDE3</color>
+    <color name="percentageDefault">#B6BCC1</color>
+    <color name="percentageUp">#33C15D</color>
+    <color name="ascPercentageUpAfterAnim">@color/unselectedTabTextColor</color>
+    <color name="ascPercentageDown">@color/etSearchStroke</color>
+    <color name="descPercentageUp">@color/etSearchStroke</color>
+    <color name="descPercentageDownAfterAnim">@color/unselectedTabTextColor</color>
+    <color name="percentageDown">#FB4E4E</color>
+    <color name="percentageStable">#979AAA</color>
+    <color name="edittext_hint">@color/percentageStable</color>
+    <color name="noSearchResultTextColor">@color/percentageStable</color>
+    <color name="disabledOtpTextColor">@color/percentageStable</color>
+    <color name="registerInActiveIndicatorColor">#D3E0FC</color>
+    <color name="validatedPasswordConfirmation">#3F4462</color>
+    <color name="inActiveButtonBlue">#ADC5F9</color>
+    <color name="depositInfoTextColor">#EDF2FE</color>
+    <color name="inActiveButtonTextColor">#FCFDFD</color>
+    <color name="error">@color/percentageDown</color>
+    <color name="semi_white">#F0F0F3</color>
+    <color name="purple">#6858FF</color>
+    <color name="bg_percentage">#F3F2FF</color>
+    <color name="et_value_underline">#DBDCE2</color>
+    <color name="order_type_desc">#363A53</color>
+    <color name="order_type_line">#D0D0D2</color>
+    <color name="bottom_sheet_title">#6D7187</color>
+
+    <color name="asset1st">#39308C</color>
+    <color name="asset2nd">#8C80FF</color>
+    <color name="asset3rd">#4D81F2</color>
+    <color name="asset4th">#80A6F6</color>
+    <color name="asset5th">#33C15D</color>
+    <color name="asset6th">#91DDA7</color>
+    <color name="asset7th">#FEBD01</color>
+    <color name="asset8th">#FED868</color>
+    <color name="asset9th">#BCBEC8</color>
+    <color name="assetOthers">#D6DDE3</color>
+</resources>

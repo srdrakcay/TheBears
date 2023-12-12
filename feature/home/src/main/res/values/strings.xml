@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LineChart</string>
+    <string name="assets_detail_chart_interval_1d">1D</string>
+    <!-- One month worth of data points -->
+    <string name="assets_detail_chart_interval_1m">1M</string>
+    <!-- One week worth of data points -->
+    <string name="assets_detail_chart_interval_1w">1W</string>
+    <!-- One year worth of data points -->
+    <string name="assets_detail_chart_interval_1y">1Y</string>
+    <!-- One month worth of data points -->
+    <string name="assets_detail_chart_interval_6m">6M</string>
+    <!-- All the data points one can get -->
+    <string name="assets_detail_chart_interval_alltime">ALL</string>
+</resources>

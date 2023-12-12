@@ -2,7 +2,6 @@ package com.serdar.home.companent
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.DashPathEffect
 import android.graphics.Paint
@@ -11,11 +10,15 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.serdar.chart.R
+import com.serdar.chart.companent.CoinChartDataViewState
+import com.serdar.chart.companent.CoinChartFormatter
+import com.serdar.chart.companent.CoinPointData
+import com.serdar.chart.companent.TextPosition
 import kotlin.math.abs
 import kotlin.math.max
 
@@ -23,23 +26,23 @@ class CoinTradeView @JvmOverloads constructor(
     context: Context, attributeSet: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attributeSet, defStyleAttr) {
 
-    private val maxTextBottomMargin = 16.px().toFloat()
+    private val maxTextBottomMargin = 16.px.toFloat()
 
-    private val triangleVertexLength = 8.px().toFloat()
+    private val triangleVertexLength = 8.px.toFloat()
 
-    private val chartVerticalMargin = 16.px().toFloat()
+    private val chartVerticalMargin = 16.px.toFloat()
 
-    private val triangleBottomMargin = 8.px().toFloat()
+    private val triangleBottomMargin = 8.px.toFloat()
 
-    private val minTextBottomMargin = 2.px().toFloat()
+    private val minTextBottomMargin = 2.px.toFloat()
 
-    private val indicatorRectangleVerticalBoundMargin = 16.px().toFloat()
+    private val indicatorRectangleVerticalBoundMargin = 16.px.toFloat()
 
-    private val chartBottomMarginToTriangle = 8.px().toFloat()
+    private val chartBottomMarginToTriangle = 8.px.toFloat()
 
-    private val textMargin = 8.px().toFloat()
+    private val textMargin = 8.px.toFloat()
 
-    private val outerCircleDifference = 2.px().toFloat()
+    private val outerCircleDifference = 2.px.toFloat()
 
     private val innerCircleRadius = textMargin / 2
 
@@ -62,17 +65,20 @@ class CoinTradeView @JvmOverloads constructor(
     private val coinChartFormatter = CoinChartFormatter()
 
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = ContextCompat.getColor(context, R.color.tabIndicator)
         style = Paint.Style.STROKE
-        strokeWidth = 2.px().toFloat()
+        strokeWidth = 2.px.toFloat()
         strokeCap = Paint.Cap.ROUND
     }
 
     private val indicatorRectanglePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = ContextCompat.getColor(context, R.color.tabIndicator)
         style = Paint.Style.FILL_AND_STROKE
         strokeCap = Paint.Cap.ROUND
     }
 
     private val innerCirclePoint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = ContextCompat.getColor(context, R.color.tabIndicator)
         style = Paint.Style.FILL_AND_STROKE
         strokeCap = Paint.Cap.ROUND
     }
@@ -84,28 +90,32 @@ class CoinTradeView @JvmOverloads constructor(
     }
 
     private val valueIndicatorLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = ContextCompat.getColor(context, R.color.unselectedTabTextColor)
         style = Paint.Style.STROKE
-        strokeWidth = 2.px().toFloat()
+        strokeWidth = 2.px.toFloat()
         pathEffect = DashPathEffect(floatArrayOf(10f, 10f), 1f)
     }
 
     private val trianglePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = ContextCompat.getColor(context, R.color.unselectedTabTextColor)
         style = Paint.Style.FILL_AND_STROKE
-        strokeWidth = 2.px().toFloat()
+        strokeWidth = 2.px.toFloat()
     }
 
     private val timeTextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 12.sp().toFloat()
+        textSize = 12.sp(context).toFloat()
+        color = ContextCompat.getColor(context, R.color.inActiveButtonBlue)
         style = Paint.Style.FILL_AND_STROKE
     }
 
     private val minMaxTextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 12.sp().toFloat()
+        textSize = 12.sp(context).toFloat()
+        color = ContextCompat.getColor(context, R.color.textGray)
         style = Paint.Style.FILL_AND_STROKE
     }
 
     private val valueTextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 12.sp().toFloat()
+        textSize = 12.sp(context).toFloat()
         color = ContextCompat.getColor(context, android.R.color.white)
         style = Paint.Style.FILL_AND_STROKE
     }
@@ -187,8 +197,8 @@ class CoinTradeView @JvmOverloads constructor(
 
                 canvas.drawRoundRect(
                     it.indicatorRectangle,
-                    4.px().toFloat(),
-                    4.px().toFloat(),
+                    4.px.toFloat(),
+                    4.px.toFloat(),
                     indicatorRectanglePaint
                 )
 
@@ -405,28 +415,5 @@ class CoinTradeView @JvmOverloads constructor(
         isValueIndicatorVisible = false
         indicatorTextData = null
         invalidate()
-    }
-
-    fun Int.px(): Int {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics
-        ).toInt()
-    }
-
-    fun Int.sp(): Float {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_SP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics
-        )
-    }
-
-    class CoinChartFormatter {
-
-        fun format(value: Double): String {
-            return String.format("%.2f", value)
-        }
     }
 }

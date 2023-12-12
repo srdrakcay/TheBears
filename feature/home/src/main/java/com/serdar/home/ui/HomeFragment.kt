@@ -6,8 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.serdar.common.base.BaseFragment
-import com.serdar.home.companent.CoinChartData
-import com.serdar.home.companent.CoinChartDataViewState
+import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.home.companent.MockCoinDataProvider
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
@@ -22,7 +21,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         super.observeUi()
         setSocketEvent()
         binding.chartView.updateCoinItems(CoinChartDataViewState(MockCoinDataProvider.provideMockCoinData(), isError = false, isDownloading = false, "TR"))
-        Log.e("TAG", "observeUi: ${MockCoinDataProvider.provideMockCoinData()}", )
 
     }
 
@@ -84,11 +82,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         is SocketStateManager.Error -> {
                             Log.e("TAG", "setSocketEvent: $it")
 
-
                         }
 
                         is SocketStateManager.Price -> {
-                            Log.e("TAG", "setSocketEvent: ${it.value}")
+                            Log.e("TAG", "setSocketEvent: $it")
+                            if (it.channel=="live_trades_btcusd"){
+
+                            }
+
                         }
                     }
                 }

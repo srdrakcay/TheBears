@@ -26,7 +26,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            multiDexEnabled=true
+            multiDexEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -40,7 +40,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
     sourceSets {

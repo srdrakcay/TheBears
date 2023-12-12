@@ -48,7 +48,9 @@ class SocketManager @Inject constructor(
                 override fun onMessage(webSocket: WebSocket, text: String) {
                 super.onMessage(webSocket, text)
                 val channel = gson.fromJson(text, Channel::class.java)
-                if (channel.isTrade()) {
+                    Log.e("TAG", "onMessage: $channel")
+
+                    if (channel.isTrade()) {
                     prevValue = nextValue
                     nextValue = channel.data.price
                     var exchangeValue = nextValue - prevValue
@@ -68,7 +70,8 @@ class SocketManager @Inject constructor(
                         SocketStateManager.Price(
                             nextValue,
                             differenceRes,
-                            exchangeValue
+                            exchangeValue,
+                            channel.channel
                         )
                     )
                 }

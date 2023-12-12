@@ -1,6 +1,7 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 import android.content.Context
+import com.serdar.chart.R
 
 private const val ONE_DAY_IN_MILLISECONDS = 86400000L
 private const val ONE_WEEK_IN_MILLISECONDS = ONE_DAY_IN_MILLISECONDS * 7
@@ -10,12 +11,12 @@ private const val ONE_YEAR_IN_MILLISECONDS = ONE_DAY_IN_MILLISECONDS * 365
 
 fun OptionEnum.getName(context: Context): String {
     return when (this) {
-        OptionEnum.ONE_DAY -> "ONE_DAY"
-        OptionEnum.ONE_WEEK -> "ONE_WEEK"
-        OptionEnum.ONE_MONTH -> "ONE_MONTH"
-        OptionEnum.SIX_MONTH -> "SIX_MONTH"
-        OptionEnum.ONE_YEAR -> "ONE_YEAR"
-        OptionEnum.ALL_TIME -> "ALL_TIME"
+        OptionEnum.ONE_DAY -> context.getString(R.string.assets_detail_chart_interval_1d)
+        OptionEnum.ONE_WEEK -> context.getString(R.string.assets_detail_chart_interval_1w)
+        OptionEnum.ONE_MONTH -> context.getString(R.string.assets_detail_chart_interval_1m)
+        OptionEnum.SIX_MONTH -> context.getString(R.string.assets_detail_chart_interval_6m)
+        OptionEnum.ONE_YEAR -> context.getString(R.string.assets_detail_chart_interval_1y)
+        OptionEnum.ALL_TIME -> context.getString(R.string.assets_detail_chart_interval_alltime)
     }
 }
 

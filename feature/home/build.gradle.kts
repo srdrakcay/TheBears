@@ -45,7 +45,7 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":localization"))
     implementation(project(":socket"))
-
+    implementation(project(":chart"))
 
     //AndroidX
     implementation(libs.androidx.core.ktx)
