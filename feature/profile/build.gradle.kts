@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.google.services)
 
 }
 
@@ -54,7 +55,7 @@ dependencies {
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.bundles.firebase)
-    implementation(libs.legacy.support.v4)
+    implementation(libs.firebase.auth.ktx)
 
     //Test
     testImplementation(libs.junit)
