@@ -1,5 +1,6 @@
 package com.serdar.socket.socketnetwork
 
+import android.util.Log
 import com.google.gson.Gson
 import com.serdar.socket.data.SocketStateManager
 import com.serdar.socket.data.dto.channel.Channel
@@ -41,10 +42,10 @@ class SocketManager @Inject constructor(
         return object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 super.onOpen(webSocket, response)
+               // subscribe()
                 trySendBlocking(SocketStateManager.Connected)
             }
-
-            override fun onMessage(webSocket: WebSocket, text: String) {
+                override fun onMessage(webSocket: WebSocket, text: String) {
                 super.onMessage(webSocket, text)
                 val channel = gson.fromJson(text, Channel::class.java)
                 if (channel.isTrade()) {

@@ -1,10 +1,14 @@
 package com.serdar.home.ui
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.serdar.common.base.BaseFragment
+import com.serdar.home.companent.CoinChartData
+import com.serdar.home.companent.CoinChartDataViewState
+import com.serdar.home.companent.MockCoinDataProvider
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,34 +21,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
+        binding.chartView.updateCoinItems(CoinChartDataViewState(MockCoinDataProvider.provideMockCoinData(), isError = false, isDownloading = false, "TR"))
+        Log.e("TAG", "observeUi: ${MockCoinDataProvider.provideMockCoinData()}", )
+
     }
 
     private fun setSubscribeSocketChannelNames() {
         val channelNames = listOf(
-            "btcusd",
-            "btceur",
-            "btcgbp",
-            "btcpax",
-            "gbpusd",
-            "eurusd",
-            "xrpusd",
-            "xrpeur",
-            "xrpbtc",
+            "live_trades_btcusd",
+            "live_trades_btceur",
+            "live_trades_btcgbp",
+            "live_trades_btcpax",
+            "live_trades_gbpusd",
+            "live_trades_eurusd",
+            "live_trades_xrpusd",
+            "live_trades_xrpeur",
+            "live_trades_xrpbtc",
         )
         viewModel.subscribeSocket(channelNames)
     }
 
     private fun setUnsubscribeSocketChannelNames() {
         val channelNames = listOf(
-            "btcusd",
-            "btceur",
-            "btcgbp",
-            "btcpax",
-            "gbpusd",
-            "eurusd",
-            "xrpusd",
-            "xrpeur",
-            "xrpbtc",
+            "live_trades_btcusd",
+            "live_trades_btceur",
+            "live_trades_btcgbp",
+            "live_trades_btcpax",
+            "live_trades_gbpusd",
+            "live_trades_eurusd",
+            "live_trades_xrpusd",
+            "live_trades_xrpeur",
+            "live_trades_xrpbtc",
         )
         viewModel.unsubscribeSocket(channelNames)
     }
@@ -56,24 +63,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     when (it) {
                         SocketStateManager.Connected -> {
                             setSubscribeSocketChannelNames()
+                            Log.e("TAG", "setSocketEvent: $it")
                         }
 
                         SocketStateManager.Connecting -> {
+                            Log.e("TAG", "setSocketEvent: $it")
+
                         }
 
                         SocketStateManager.Disconnected -> {
-                            setUnsubscribeSocketChannelNames()
+                            Log.e("TAG", "setSocketEvent: $it")
+
                         }
 
                         SocketStateManager.Disconnecting -> {
-                            setUnsubscribeSocketChannelNames()
+                            Log.e("TAG", "setSocketEvent: $it")
+
                         }
 
                         is SocketStateManager.Error -> {
+                            Log.e("TAG", "setSocketEvent: $it")
+
 
                         }
 
                         is SocketStateManager.Price -> {
+                            Log.e("TAG", "setSocketEvent: ${it.value}")
                         }
                     }
                 }

@@ -23,6 +23,7 @@ class HomeViewModel @Inject constructor(
              SubscriptionSocket("bts:subscribe", SubscriptionSocketData(channel = channelName))
          }
          subscribeMessages.forEach { subscribeMessage ->
+
              socketManager.socket.send(gson.toJson(subscribeMessage))
          }
     }
