@@ -82,6 +82,16 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation (libs.retrofit.gson)
+    implementation (libs.retrofit.moshi)
+
+
+    //Okhttp
+    implementation(libs.okhttp)
+
     //Gson
     implementation(libs.gson)
 

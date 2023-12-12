@@ -1,31 +1,38 @@
 package com.serdar.home.ui
 
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.MockCoinDataProvider
 import com.serdar.common.base.BaseFragment
+import com.serdar.home.data.NetworkResponseState
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val viewModel by viewModels<HomeViewModel>()
-    private val dataList: ArrayList<Double> = arrayListOf()
 
+    companion object {
+        private val dataList: ArrayList<Double> = arrayListOf()
+    }
+
+    override fun callInitialViewModelFunctions() {
+        super.callInitialViewModelFunctions()
+        viewModel.getAllCryptoDataFromRest()
+    }
 
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
-
+        initObserve()
     }
 
     private fun setSubscribeSocketChannelNames() {
@@ -82,12 +89,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         is SocketStateManager.Price -> {
                             handlePriceState(it)
 
-                            }
+                        }
 
                         else -> {}
                     }
-                    }
                 }
+        }
     }
 
     private fun handlePriceState(socketEvent: SocketStateManager.Price) {
@@ -103,6 +110,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     )
                 )
             }
+        }
+    }
+
+    private fun initObserve() {
+        viewModel.viewModelScope.launch {
+            viewModel.homeUiState.collect {
+                when (it) {
+                    is HomeUiState.Error -> {
+                    }
+
+                    HomeUiState.Loading -> {
+                    }
+
+                    is HomeUiState.Success -> {
+                        Log.e("TAG", "initObserve:${it.data.data} ", )
+                    }
+                }
+            }
+
         }
     }
 }
