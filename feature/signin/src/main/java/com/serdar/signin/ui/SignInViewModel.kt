@@ -2,7 +2,7 @@ package com.serdar.signin.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.serdar.common.FirebaseAuthResponse
+import com.serdar.common.response.FirebaseAuthResponse
 import com.serdar.signin.R
 import com.serdar.signin.domain.FirebaseCreateUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

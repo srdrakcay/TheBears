@@ -1,6 +1,6 @@
 package com.serdar.signup.domain
 
-import com.serdar.common.FirebaseAuthResponse
+import com.serdar.common.response.FirebaseAuthResponse
 import com.serdar.signup.data.SignUpAuth
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

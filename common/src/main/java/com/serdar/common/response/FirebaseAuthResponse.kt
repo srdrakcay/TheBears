@@ -1,4 +1,4 @@
-package com.serdar.common
+package com.serdar.common.response
 
 sealed class FirebaseAuthResponse<out T :Any?> {
     data object Loading : FirebaseAuthResponse<Nothing>()

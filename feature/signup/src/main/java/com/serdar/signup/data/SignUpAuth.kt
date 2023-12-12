@@ -1,6 +1,6 @@
 package com.serdar.signup.data
 
-import com.serdar.common.FirebaseAuthResponse
+import com.serdar.common.response.FirebaseAuthResponse
 import kotlinx.coroutines.flow.Flow
 
 interface SignUpAuth {

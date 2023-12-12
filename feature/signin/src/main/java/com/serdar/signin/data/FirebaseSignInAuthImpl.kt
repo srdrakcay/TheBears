@@ -1,7 +1,7 @@
 package com.serdar.signin.data
 
 import com.google.firebase.auth.FirebaseAuth
-import com.serdar.common.FirebaseAuthResponse
+import com.serdar.common.response.FirebaseAuthResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
