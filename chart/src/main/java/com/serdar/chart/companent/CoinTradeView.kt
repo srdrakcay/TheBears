@@ -18,7 +18,11 @@ import com.serdar.chart.R
 import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.CoinChartFormatter
 import com.serdar.chart.companent.CoinPointData
+import com.serdar.chart.companent.IndicatorText
+import com.serdar.chart.companent.IndicatorTextData
 import com.serdar.chart.companent.TextPosition
+import com.serdar.chart.companent.px
+import com.serdar.chart.companent.sp
 import kotlin.math.abs
 import kotlin.math.max
 

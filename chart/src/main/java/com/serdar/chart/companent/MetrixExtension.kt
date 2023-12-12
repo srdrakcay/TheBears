@@ -1,4 +1,4 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 import android.content.Context
 import android.content.res.Resources

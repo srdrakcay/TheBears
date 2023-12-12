@@ -1,6 +1,5 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
-import com.serdar.chart.companent.CoinChartData
 import kotlin.random.Random
 
 object MockCoinDataProvider {

@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.serdar.chart.R
 import com.serdar.home.companent.CoinTradeView
-import com.serdar.home.companent.dp
 
 class CoinChartContainer @JvmOverloads constructor(
     context: Context,

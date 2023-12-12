@@ -1,7 +1,6 @@
-package com.serdar.home.companent
+package com.serdar.chart.companent
 
 import android.graphics.RectF
-import com.serdar.chart.companent.TextPosition
 
 data class IndicatorTextData(
     val indicatorRectangle: RectF,

@@ -7,7 +7,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.serdar.common.base.BaseFragment
 import com.serdar.chart.companent.CoinChartDataViewState
-import com.serdar.home.companent.MockCoinDataProvider
+import com.serdar.chart.companent.MockCoinDataProvider
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import dagger.hilt.android.AndroidEntryPoint

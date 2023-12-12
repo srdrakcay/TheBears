@@ -1,5 +1,3 @@
-package com.serdar.home.companent
-
-import com.serdar.chart.companent.TextPosition
+package com.serdar.chart.companent
 
 data class IndicatorText(val text: String, val position: TextPosition)
