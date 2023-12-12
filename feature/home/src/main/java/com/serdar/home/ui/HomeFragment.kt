@@ -1,26 +1,30 @@
 package com.serdar.home.ui
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.serdar.common.base.BaseFragment
 import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.MockCoinDataProvider
+import com.serdar.common.base.BaseFragment
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val viewModel by viewModels<HomeViewModel>()
+    private val dataList: ArrayList<Double> = arrayListOf()
+
 
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
-        binding.chartView.updateCoinItems(CoinChartDataViewState(MockCoinDataProvider.provideMockCoinData(), isError = false, isDownloading = false, "TR"))
 
     }
 
@@ -61,38 +65,44 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     when (it) {
                         SocketStateManager.Connected -> {
                             setSubscribeSocketChannelNames()
-                            Log.e("TAG", "setSocketEvent: $it")
                         }
 
                         SocketStateManager.Connecting -> {
-                            Log.e("TAG", "setSocketEvent: $it")
-
                         }
 
                         SocketStateManager.Disconnected -> {
-                            Log.e("TAG", "setSocketEvent: $it")
-
                         }
 
                         SocketStateManager.Disconnecting -> {
-                            Log.e("TAG", "setSocketEvent: $it")
-
                         }
 
                         is SocketStateManager.Error -> {
-                            Log.e("TAG", "setSocketEvent: $it")
-
                         }
 
                         is SocketStateManager.Price -> {
-                            Log.e("TAG", "setSocketEvent: $it")
-                            if (it.channel=="live_trades_btcusd"){
+                            handlePriceState(it)
 
                             }
 
-                        }
+                        else -> {}
+                    }
                     }
                 }
+    }
+
+    private fun handlePriceState(socketEvent: SocketStateManager.Price) {
+        if (socketEvent.channel == "live_trades_btcusd") {
+            dataList.add(socketEvent.value)
+            if (dataList.size > 9) {
+                binding.chartView.updateCoinItems(
+                    CoinChartDataViewState(
+                        MockCoinDataProvider.provideMockCoinData(dataList),
+                        isError = false,
+                        isDownloading = false,
+                        "$"
+                    )
+                )
+            }
         }
     }
 }
