@@ -5,13 +5,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.MockCoinDataProvider
 import com.serdar.common.base.BaseFragment
+import com.serdar.common.extensions.combineString
 import com.serdar.common.extensions.notShow
 import com.serdar.common.extensions.show
 import com.serdar.home.R
+import com.serdar.localization.R as localizationR
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import com.serdar.socket.util.Difference
@@ -27,19 +28,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         const val PRICE_CHANNEL_NAME = "live_trades_btcusd"
     }
 
-    override fun callInitialViewModelFunctions() {
-        super.callInitialViewModelFunctions()
-        setAdapter()
-    }
-
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
         binding.chartView.notShow()
 
-    }
-
-    private fun setAdapter() {
     }
 
     private fun setSubscribeSocketChannelNames() {
@@ -73,28 +66,34 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setSocketEvent() {
+        val socketStatus = resources.getString(localizationR.string.socket_status)
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
                 .collect {
                     when (it) {
                         SocketStateManager.Connected -> {
                             setSubscribeSocketChannelNames()
-                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+                            binding.txtCryptoBtcPrice.text =
+                                socketStatus.combineString(it.toString())
 
                         }
 
                         SocketStateManager.Connecting -> {
-                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+                            binding.txtCryptoBtcPrice.text =
+                                socketStatus.combineString(it.toString())
 
                         }
 
                         SocketStateManager.Disconnected -> {
-                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+                            binding.txtCryptoBtcPrice.text =
+                                socketStatus.combineString(it.toString())
 
                         }
 
                         SocketStateManager.Disconnecting -> {
-                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+                            binding.txtCryptoBtcPrice.text =
+                                socketStatus.combineString(it.toString())
 
                         }
 
@@ -105,7 +104,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         is SocketStateManager.Price -> {
                             if (it.channel == PRICE_CHANNEL_NAME) {
                                 setExchange(it.exchange)
-                                binding.txtCryptoBtcPrice.text = "BTC : ${it.value} $"
+                                binding.txtCryptoBtcPrice.text =
+                                    resources.getString(com.serdar.localization.R.string.socket_btc)
+                                        .combineString(it.value.toString())
                             }
 
                             handlePriceState(it)
@@ -135,14 +136,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
 
-
     private fun setExchange(difference: Difference) {
         when (difference) {
             Difference.UP -> {
                 binding.txtCryptoBtcPrice.setTextColor(
                     AppCompatResources.getColorStateList(
-                        requireContext(),
-                        R.color.percentageUp
+                        requireContext(), R.color.percentageUp
                     )
                 )
             }
@@ -150,8 +149,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             Difference.Down -> {
                 binding.txtCryptoBtcPrice.setTextColor(
                     AppCompatResources.getColorStateList(
-                        requireContext(),
-                        R.color.percentageDown
+                        requireContext(), R.color.percentageDown
                     )
                 )
             }
@@ -159,8 +157,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             Difference.Stable -> {
                 binding.txtCryptoBtcPrice.setTextColor(
                     AppCompatResources.getColorStateList(
-                        requireContext(),
-                        R.color.black
+                        requireContext(), R.color.black
                     )
                 )
             }
