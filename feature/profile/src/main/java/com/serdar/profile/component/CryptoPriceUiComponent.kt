@@ -5,14 +5,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.serdar.profile.data.dto.Data
-import com.serdar.profile.databinding.HomeUiComponentBinding
+import com.serdar.profile.databinding.ProfileUiComponentBinding
 
 class CryptoPriceUiComponent @JvmOverloads constructor(
     context: Context, attributeSet: AttributeSet, defStyleAttr: Int = 0
 ) : FrameLayout(context, attributeSet, defStyleAttr) {
 
 
-    private val _binding = HomeUiComponentBinding.inflate(LayoutInflater.from(context), this, false)
+    private val _binding = ProfileUiComponentBinding.inflate(LayoutInflater.from(context), this, false)
 
 
     init {

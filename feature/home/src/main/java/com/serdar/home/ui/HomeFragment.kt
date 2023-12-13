@@ -10,6 +10,7 @@ import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.MockCoinDataProvider
 import com.serdar.common.base.BaseFragment
 import com.serdar.common.extensions.notShow
+import com.serdar.common.extensions.show
 import com.serdar.home.R
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
@@ -120,6 +121,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         if (socketEvent.channel == PRICE_CHANNEL_NAME) {
             dataList.add(socketEvent.value)
             if (dataList.size > 9) {
+                binding.chartView.show()
                 binding.chartView.updateCoinItems(
                     CoinChartDataViewState(
                         MockCoinDataProvider.provideMockCoinData(dataList),
