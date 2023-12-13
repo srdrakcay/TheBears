@@ -3,6 +3,7 @@ package com.serdar.profile.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
+import com.serdar.socket.socketnetwork.SocketManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,8 +13,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val firebaseAuth: FirebaseAuth) : ViewModel() {
+class ProfileViewModel @Inject constructor(private val firebaseAuth: FirebaseAuth,
+                                           private val socketManager: SocketManager) : ViewModel() {
 
+    val state = socketManager.events
     private val _currentUser = MutableStateFlow<String>("")
     val currentUser: MutableStateFlow<String> = _currentUser
     private val _signOutState = MutableStateFlow<SignOutState>(SignOutState.Idle)

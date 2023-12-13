@@ -20,6 +20,7 @@ class CryptoPriceRepositoryImpl @Inject constructor(
     override suspend fun getAllCryptoPriceFromRest(): Flow<NetworkResponseState<CryptoPriceResponse>> =
         flow {
             try {
+                emit(NetworkResponseState.Loading)
                 val response = networkService.getAllCryptoPriceFromRest()
                 emit(NetworkResponseState.Success(response))
             } catch (e: Exception) {

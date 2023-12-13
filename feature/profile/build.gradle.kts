@@ -44,6 +44,7 @@ android {
 dependencies {
     implementation(project(":common"))
     implementation(project(":navigation"))
+    implementation(project(":socket"))
 
     //AndroidX
     implementation(libs.androidx.core.ktx)

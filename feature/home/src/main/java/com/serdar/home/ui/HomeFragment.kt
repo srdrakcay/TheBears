@@ -19,6 +19,7 @@ import kotlin.math.log
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val viewModel by viewModels<HomeViewModel>()
+    private val adapter by lazy { HomeAdapter() }
 
     companion object {
         private val dataList: ArrayList<Double> = arrayListOf()
@@ -27,12 +28,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun callInitialViewModelFunctions() {
         super.callInitialViewModelFunctions()
         viewModel.getAllCryptoDataFromRest()
+        setAdapter()
     }
 
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
         initObserve()
+    }
+    private fun setAdapter(){
+        binding.rcvCrypto.adapter=adapter
     }
 
     private fun setSubscribeSocketChannelNames() {
@@ -84,6 +89,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         }
 
                         is SocketStateManager.Error -> {
+                            setUnsubscribeSocketChannelNames()
                         }
 
                         is SocketStateManager.Price -> {
@@ -124,11 +130,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     }
 
                     is HomeUiState.Success -> {
-                        Log.e("TAG", "initObserve:${it.data.data} ", )
+                        adapter.updateItems(it.data.data)
                     }
                 }
             }
-
         }
     }
 }
