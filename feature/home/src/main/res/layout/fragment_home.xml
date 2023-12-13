@@ -6,28 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvCrypto"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chartView">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
     <com.serdar.chart.companent.CoinChartContainer
         android:id="@+id/chartView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </com.serdar.chart.companent.CoinChartContainer>
+
+    <TextView
+        android:id="@+id/txtCryptoBtcPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/chartView"
+        app:layout_constraintStart_toStartOf="@+id/chartView"
+        app:layout_constraintTop_toBottomOf="@+id/chartView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

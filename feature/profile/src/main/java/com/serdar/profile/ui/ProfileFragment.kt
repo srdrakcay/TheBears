@@ -16,11 +16,13 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
     private val viewModel by viewModels<ProfileViewModel>()
+    private val adapter by lazy { ProfileAdapter() }
 
     override fun callInitialViewModelFunctions() {
         super.callInitialViewModelFunctions()
         viewModel.userInfo()
-
+        viewModel.getAllCryptoDataFromRest()
+        setAdapter()
     }
 
     override fun observeUi() {
@@ -28,6 +30,28 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         initObserve()
         signOut()
         setSocketEvent()
+        initCryptoPriceObserve()
+    }
+    private fun setAdapter(){
+        binding.rcvCrypto.adapter=adapter
+    }
+
+    private fun initCryptoPriceObserve() {
+        viewModel.viewModelScope.launch {
+            viewModel.homeUiState.collect {
+                when (it) {
+                    is ProfileUiState.Error -> {
+                    }
+
+                    is ProfileUiState.Loading -> {
+                    }
+
+                    is ProfileUiState.Success -> {
+                        adapter.updateItems(it.data.data)
+                    }
+                }
+            }
+        }
     }
 
     private fun initObserve() {

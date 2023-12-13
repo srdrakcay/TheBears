@@ -1,7 +1,7 @@
-package com.serdar.home.data.repository
+package com.serdar.profile.data.repository
 
-import com.serdar.home.data.NetworkResponseState
-import com.serdar.home.data.dto.CryptoPriceResponse
+import com.serdar.profile.data.NetworkResponseState
+import com.serdar.profile.data.dto.CryptoPriceResponse
 import kotlinx.coroutines.flow.Flow
 
 interface CryptoPriceRepository {

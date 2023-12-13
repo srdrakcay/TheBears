@@ -1,6 +1,6 @@
 package com.serdar.home.ui
 
-import android.util.Log
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -9,35 +9,36 @@ import androidx.lifecycle.viewModelScope
 import com.serdar.chart.companent.CoinChartDataViewState
 import com.serdar.chart.companent.MockCoinDataProvider
 import com.serdar.common.base.BaseFragment
-import com.serdar.home.data.NetworkResponseState
+import com.serdar.common.extensions.notShow
+import com.serdar.home.R
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
+import com.serdar.socket.util.Difference
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val viewModel by viewModels<HomeViewModel>()
-    private val adapter by lazy { HomeAdapter() }
 
     companion object {
         private val dataList: ArrayList<Double> = arrayListOf()
+        const val PRICE_CHANNEL_NAME = "live_trades_btcusd"
     }
 
     override fun callInitialViewModelFunctions() {
         super.callInitialViewModelFunctions()
-        viewModel.getAllCryptoDataFromRest()
         setAdapter()
     }
 
     override fun observeUi() {
         super.observeUi()
         setSocketEvent()
-        initObserve()
+        binding.chartView.notShow()
+
     }
-    private fun setAdapter(){
-        binding.rcvCrypto.adapter=adapter
+
+    private fun setAdapter() {
     }
 
     private fun setSubscribeSocketChannelNames() {
@@ -77,15 +78,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     when (it) {
                         SocketStateManager.Connected -> {
                             setSubscribeSocketChannelNames()
+                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+
                         }
 
                         SocketStateManager.Connecting -> {
+                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+
                         }
 
                         SocketStateManager.Disconnected -> {
+                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+
                         }
 
                         SocketStateManager.Disconnecting -> {
+                            binding.txtCryptoBtcPrice.text = "Socket Status: $it "
+
                         }
 
                         is SocketStateManager.Error -> {
@@ -93,8 +102,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         }
 
                         is SocketStateManager.Price -> {
-                            handlePriceState(it)
+                            if (it.channel == PRICE_CHANNEL_NAME) {
+                                setExchange(it.exchange)
+                                binding.txtCryptoBtcPrice.text = "BTC : ${it.value} $"
+                            }
 
+                            handlePriceState(it)
                         }
 
                         else -> {}
@@ -104,7 +117,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun handlePriceState(socketEvent: SocketStateManager.Price) {
-        if (socketEvent.channel == "live_trades_btcusd") {
+        if (socketEvent.channel == PRICE_CHANNEL_NAME) {
             dataList.add(socketEvent.value)
             if (dataList.size > 9) {
                 binding.chartView.updateCoinItems(
@@ -119,20 +132,35 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
-    private fun initObserve() {
-        viewModel.viewModelScope.launch {
-            viewModel.homeUiState.collect {
-                when (it) {
-                    is HomeUiState.Error -> {
-                    }
 
-                    HomeUiState.Loading -> {
-                    }
 
-                    is HomeUiState.Success -> {
-                        adapter.updateItems(it.data.data)
-                    }
-                }
+    private fun setExchange(difference: Difference) {
+        when (difference) {
+            Difference.UP -> {
+                binding.txtCryptoBtcPrice.setTextColor(
+                    AppCompatResources.getColorStateList(
+                        requireContext(),
+                        R.color.percentageUp
+                    )
+                )
+            }
+
+            Difference.Down -> {
+                binding.txtCryptoBtcPrice.setTextColor(
+                    AppCompatResources.getColorStateList(
+                        requireContext(),
+                        R.color.percentageDown
+                    )
+                )
+            }
+
+            Difference.Stable -> {
+                binding.txtCryptoBtcPrice.setTextColor(
+                    AppCompatResources.getColorStateList(
+                        requireContext(),
+                        R.color.black
+                    )
+                )
             }
         }
     }

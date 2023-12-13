@@ -1,11 +1,11 @@
-package com.serdar.home.component
+package com.serdar.profile.component
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import com.serdar.home.data.dto.Data
-import com.serdar.home.databinding.HomeUiComponentBinding
+import com.serdar.profile.data.dto.Data
+import com.serdar.profile.databinding.HomeUiComponentBinding
 
 class CryptoPriceUiComponent @JvmOverloads constructor(
     context: Context, attributeSet: AttributeSet, defStyleAttr: Int = 0

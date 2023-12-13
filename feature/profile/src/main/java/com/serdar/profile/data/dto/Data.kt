@@ -1,4 +1,4 @@
-package com.serdar.home.data.dto
+package com.serdar.profile.data.dto
 
 data class Data(
     val changePercent24Hr: String,

@@ -1,4 +1,4 @@
-package com.serdar.home.di
+package com.serdar.profile.di
 
 import dagger.Module
 import dagger.Provides

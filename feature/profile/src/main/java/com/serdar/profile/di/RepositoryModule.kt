@@ -1,7 +1,7 @@
-package com.serdar.home.di
+package com.serdar.profile.di
 
-import com.serdar.home.data.repository.CryptoPriceRepository
-import com.serdar.home.data.repository.CryptoPriceRepositoryImpl
+import com.serdar.profile.data.repository.CryptoPriceRepository
+import com.serdar.profile.data.repository.CryptoPriceRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

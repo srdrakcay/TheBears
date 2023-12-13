@@ -1,4 +1,4 @@
-package com.serdar.home.data.dto
+package com.serdar.profile.data.dto
 
 import com.squareup.moshi.Json
 

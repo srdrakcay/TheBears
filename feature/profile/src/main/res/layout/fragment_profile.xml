@@ -10,9 +10,9 @@
         android:id="@+id/txtUserEmailInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Profile Fragment"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,5 +45,16 @@
         app:layout_constraintEnd_toEndOf="@+id/txtUserEmailInfo"
         app:layout_constraintStart_toStartOf="@+id/txtUserEmailInfo"
         app:layout_constraintTop_toBottomOf="@+id/txtUserEmailInfo"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvCrypto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSocketStatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

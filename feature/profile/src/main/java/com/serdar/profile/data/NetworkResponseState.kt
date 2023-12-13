@@ -1,4 +1,4 @@
-package com.serdar.home.data
+package com.serdar.profile.data
 
 sealed class NetworkResponseState<out T :Any?> {
     data object Loading : NetworkResponseState<Nothing>()

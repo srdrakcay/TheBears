@@ -1,7 +1,6 @@
-package com.serdar.home.data
+package com.serdar.profile.data
 
-import com.serdar.home.data.dto.CryptoPriceResponse
-import kotlinx.coroutines.flow.Flow
+import com.serdar.profile.data.dto.CryptoPriceResponse
 import retrofit2.http.GET
 
 interface NetworkService {

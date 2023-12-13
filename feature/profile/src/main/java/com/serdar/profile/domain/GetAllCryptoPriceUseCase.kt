@@ -1,8 +1,8 @@
-package com.serdar.home.domain
+package com.serdar.profile.domain
 
-import com.serdar.home.data.NetworkResponseState
-import com.serdar.home.data.dto.CryptoPriceResponse
-import com.serdar.home.data.repository.CryptoPriceRepository
+import com.serdar.profile.data.NetworkResponseState
+import com.serdar.profile.data.dto.CryptoPriceResponse
+import com.serdar.profile.data.repository.CryptoPriceRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

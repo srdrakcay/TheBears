@@ -1,16 +1,11 @@
-package com.serdar.home.di
+package com.serdar.profile.di
 
-import com.google.gson.Gson
-import com.serdar.home.data.NetworkService
+import com.serdar.profile.data.NetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
