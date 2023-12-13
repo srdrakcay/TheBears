@@ -66,6 +66,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
+    //Test-Mock
+    testImplementation(libs.mock)
+    androidTestImplementation(libs.mock.android)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.truth)
+
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

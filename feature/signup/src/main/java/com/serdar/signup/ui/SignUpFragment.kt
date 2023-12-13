@@ -3,6 +3,7 @@ package com.serdar.signup.ui
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.serdar.common.base.BaseFragment
 import com.serdar.common.validation.EmptyTextRule
 import com.serdar.common.validation.PasswordRule
@@ -13,6 +14,7 @@ import com.serdar.signup.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
 import com.serdar.navigation.R
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate) {

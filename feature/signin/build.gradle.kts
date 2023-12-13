@@ -1,5 +1,4 @@
-@Suppress("DSL_SCOPE_VIOLATION")
-plugins {
+@Suppress("DSL_SCOPE_VIOLATION") plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.google.services)
@@ -21,11 +20,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            multiDexEnabled=true
+            multiDexEnabled = true
 
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -36,9 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -60,8 +59,12 @@ dependencies {
 
     //Test
     testImplementation(libs.junit)
+    testImplementation(libs.turbine)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+
 
     // Hilt
     implementation(libs.hilt.android)

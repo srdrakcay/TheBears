@@ -18,8 +18,19 @@ navigation = "2.6.0"
 legacy-support-v4 = "1.0.0"
 androidxLifeCycle = "2.6.2"
 retrofit = "2.9.0"
-
+mockito = "5.2.1"
+mock_core = "5.2.0"
+mockito_inline = "5.2.0"
+mockito_android = "5.2.1"
+truth="1.0.1"
+turbine="1.0.0"
 [libraries]
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+mock = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito" }
+mock_android = { module = "org.mockito.kotlin:mockito-android", version.ref = "mockito_android" }
+mock_core = { module = "org.mockito.kotlin:mockito-core", version.ref = "mock_core" }
+mockito_inline = { module = "org.mockito:mockito-inline",  version.ref = "mockito_inline" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit_gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 retrofit_moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
@@ -58,3 +69,4 @@ android-navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref
 
 [bundles]
 firebase = ["firebase-analytics"]
+
