@@ -1,5 +1,6 @@
 package com.serdar.profile.ui
 
+import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -53,6 +54,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                     }
 
                     is ProfileUiState.Success -> {
+                        Log.e("TAG", "initCryptoPriceObserve:${it.data.data} ", )
                         adapter.updateItems(it.data.data)
                     }
                 }
