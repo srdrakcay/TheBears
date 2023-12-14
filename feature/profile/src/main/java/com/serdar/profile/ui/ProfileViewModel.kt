@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.serdar.profile.data.NetworkResponseState
 import com.serdar.profile.domain.GetAllCryptoPriceUseCase
+import com.serdar.profile.domain.GetAllCryptoPriceUseCaseImpl
 import com.serdar.socket.socketnetwork.SocketManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
