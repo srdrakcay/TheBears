@@ -7,16 +7,12 @@ import com.google.gson.Gson
 import com.serdar.profile.constant.apiException
 import com.serdar.profile.constant.cryptoResponse
 import com.serdar.profile.domain.GetAllCryptoPriceUseCaseImpl
-import com.serdar.socket.data.SocketStateManager
-import com.serdar.socket.data.dto.subscription.SubscriptionSocket
-import com.serdar.socket.data.dto.subscription.SubscriptionSocketData
 import com.serdar.socket.socketnetwork.SocketManager
 import io.mockk.MockKAnnotations
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
@@ -35,8 +31,10 @@ class ProfileViewModelTest {
 
     @Mock
     private lateinit var firebaseAuth: FirebaseAuth
+
     @Mock
     private lateinit var gson: Gson
+
     @Mock
     private lateinit var socketManager: SocketManager
     private lateinit var dispatcherProvider: TestDispatcherProvider
