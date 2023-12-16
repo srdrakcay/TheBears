@@ -1,18 +1,12 @@
 package com.serdar.profile.ui
 
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.serdar.common.distpatcher.DispatcherProvider
-import com.serdar.common.extensions.combineString
 import com.serdar.profile.data.NetworkResponseState
 import com.serdar.profile.domain.GetAllCryptoPriceUseCase
-import com.serdar.socket.data.SocketStateManager
-import com.serdar.socket.data.dto.subscription.SubscriptionSocket
-import com.serdar.socket.data.dto.subscription.SubscriptionSocketData
 import com.serdar.socket.socketnetwork.SocketManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,11 +17,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val firebaseAuth: FirebaseAuth,
-                                           private val getAllCryptoPriceUseCase: GetAllCryptoPriceUseCase,
-                                           private val dispatcherProvider: DispatcherProvider,
-                                           private val gson: Gson,
-                                           private val socketManager: SocketManager) : ViewModel() {
+class ProfileViewModel @Inject constructor(
+    private val firebaseAuth: FirebaseAuth,
+    private val getAllCryptoPriceUseCase: GetAllCryptoPriceUseCase,
+    private val dispatcherProvider: DispatcherProvider,
+    private val gson: Gson,
+    private val socketManager: SocketManager
+) : ViewModel() {
 
     val state = socketManager.events
     private val _currentUser = MutableStateFlow<String>("")
@@ -43,7 +39,7 @@ class ProfileViewModel @Inject constructor(private val firebaseAuth: FirebaseAut
     }
 
     fun signOut() {
-        viewModelScope.launch (dispatcherProvider.main){
+        viewModelScope.launch(dispatcherProvider.main) {
             _signOutState.value = SignOutState.Loading
             try {
                 firebaseAuth.signOut()
@@ -54,8 +50,9 @@ class ProfileViewModel @Inject constructor(private val firebaseAuth: FirebaseAut
         }
 
     }
+
     fun getAllCryptoDataFromRest() {
-        viewModelScope.launch (dispatcherProvider.main){
+        viewModelScope.launch(dispatcherProvider.main) {
             getAllCryptoPriceUseCase().onEach {
                 when (it) {
                     is NetworkResponseState.Error -> {
