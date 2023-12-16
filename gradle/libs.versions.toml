@@ -24,7 +24,14 @@ mockito_inline = "5.2.0"
 mockito_android = "5.2.1"
 truth="1.0.1"
 turbine="1.0.0"
+core-testing="2.2.0"
+coroutines-testing="1.7.1"
+mockk="1.13.5"
 [libraries]
+mockk_mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk_android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+coroutines-testing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-testing" }
+core-testing = { module = "androidx.arch.core:core-testing", version.ref = "core-testing" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 mock = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito" }

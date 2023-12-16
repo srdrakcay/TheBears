@@ -64,13 +64,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.coroutines.testing)
 
     //Test-Mock
     testImplementation(libs.mock)
+    testImplementation(libs.mockk.mockk)
+    testImplementation(libs.mockk.android)
     androidTestImplementation(libs.mock.android)
     testImplementation(libs.mockito.inline)
     testImplementation(libs.truth)
     testImplementation(libs.turbine)
+    testImplementation(libs.core.testing)
 
 
     // Hilt

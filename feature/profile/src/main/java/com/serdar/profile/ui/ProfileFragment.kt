@@ -45,7 +45,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     private fun initCryptoPriceObserve() {
         viewModel.viewModelScope.launch {
-            viewModel.homeUiState.collect {
+            viewModel.profileUiState.collect {
                 when (it) {
                     is ProfileUiState.Error -> {
                     }
@@ -54,8 +54,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                     }
 
                     is ProfileUiState.Success -> {
-                        Log.e("TAG", "initCryptoPriceObserve:${it.data.data} ", )
-                        adapter.updateItems(it.data.data)
+                        Log.e("TAG", "initCryptoPriceObserve:${it.result.data} ", )
+                        adapter.updateItems(it.result.data)
                     }
                 }
             }

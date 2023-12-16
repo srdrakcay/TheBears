@@ -42,14 +42,12 @@ class SocketManager @Inject constructor(
         return object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 super.onOpen(webSocket, response)
-               // subscribe()
+                subscribe()
                 trySendBlocking(SocketStateManager.Connected)
             }
                 override fun onMessage(webSocket: WebSocket, text: String) {
                 super.onMessage(webSocket, text)
                 val channel = gson.fromJson(text, Channel::class.java)
-                    Log.e("TAG", "onMessage: $channel")
-
                     if (channel.isTrade()) {
                     prevValue = nextValue
                     nextValue = channel.data.price
@@ -99,11 +97,11 @@ class SocketManager @Inject constructor(
         }
     }
 
-    private fun subscribe() {
+     fun subscribe() {
         socket.send(gson.toJson(SUBSCRIBE_MESSAGE))
     }
 
-    private fun unsubscribe() {
+     fun unsubscribe() {
         socket.send(gson.toJson(UNSUBSCRIBE_MESSAGE))
     }
     companion object {
