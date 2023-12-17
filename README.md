@@ -2,6 +2,13 @@
 The Bears is a Kotlin multi-module Android application that allows users to log in with their email and password using Firebase Authentication.
 Once logged in, users can observe real-time cryptocurrency prices with socket connection.
 
+
+## Project Screens
+SIGNIN SCREEN | SIGNUP SCREEN |  HOME SCREEN |   HOME SCREEN |    PROFİLE SCREEN | 
+--- | --- | --- | --- |  --- | 
+![Uygulama Ekran Görüntüsü](https://i.hizliresim.com/51l2cik.png) |![Uygulama Ekran Görüntüsü](https://i.hizliresim.com/90kp9dj.png) |![Uygulama Ekran Görüntüsü](https://i.hizliresim.com/sfo71xi.png)|![Uygulama Ekran Görüntüsü](https://i.hizliresim.com/at60j8k.png)|![Uygulama Ekran Görüntüsü](https://i.hizliresim.com/bq1b5hm.png)
+
+
 # Project Structures
 ![Logo](https://i.hizliresim.com/dzhznhz.jpg)
 
@@ -81,7 +88,12 @@ In this project has different modularazitaion
 -  Extension ,
 -  Base Adapter,
 -  Base Fragment,
--  Base ViewHolder 
+-  Base ViewHolder
+
+
+
+
+
 
 
     
