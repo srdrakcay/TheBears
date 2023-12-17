@@ -27,7 +27,12 @@ turbine="1.0.0"
 core-testing="2.2.0"
 coroutines-testing="1.7.1"
 mockk="1.13.5"
+fragment_version="1.6.2"
+fragment_test="1.7.0-alpha07"
+
 [libraries]
+hilt_testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
+fragment_testing = { module = "androidx.fragment:fragment-testing", version.ref = "fragment_test" }
 mockk_mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 mockk_android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 coroutines-testing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-testing" }
@@ -46,6 +51,9 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espresso-core" }
+androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espresso-core" }
+
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { module = "junit:junit", version.ref = "junit" }

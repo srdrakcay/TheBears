@@ -16,7 +16,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.serdar.profile.TestRunner"
     }
 
     buildTypes {
@@ -70,12 +70,15 @@ dependencies {
     testImplementation(libs.mock)
     testImplementation(libs.mockk.mockk)
     testImplementation(libs.mockk.android)
-    androidTestImplementation(libs.mock.android)
+    testImplementation(libs.mock.android)
     testImplementation(libs.mockito.inline)
     testImplementation(libs.truth)
     testImplementation(libs.turbine)
     testImplementation(libs.core.testing)
-
+    androidTestImplementation(libs.hilt.testing)
+    androidTestImplementation(libs.fragment.testing)
+    kaptTest(libs.hilt.compiler)
+    kaptAndroidTest(libs.hilt.compiler)
 
     // Hilt
     implementation(libs.hilt.android)

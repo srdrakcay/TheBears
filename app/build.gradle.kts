@@ -1,5 +1,4 @@
-@Suppress("DSL_SCOPE_VIOLATION")
-plugins {
+@Suppress("DSL_SCOPE_VIOLATION") plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
     alias(libs.plugins.kotlin.kapt)
@@ -20,7 +19,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.serdar.thebears.profile.TestRunner"
     }
 
     buildTypes {
@@ -28,8 +27,7 @@ android {
             isMinifyEnabled = false
             multiDexEnabled = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -46,6 +44,10 @@ android {
     sourceSets {
         getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
     }
+
+    testOptions {
+        animationsDisabled = true
+    }
 }
 
 dependencies {
@@ -55,7 +57,6 @@ dependencies {
     implementation(project(":feature:signin"))
     implementation(project(":feature:home"))
     implementation(project(":feature:profile"))
-
 
     //AndroidX
     implementation(libs.androidx.core.ktx)
@@ -69,12 +70,38 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    //Test
+    //Test-Junit
     testImplementation(libs.junit)
+
+    //Test-Junit-Android
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+
+    //Test-Espresso
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.espresso.contrib)
+    androidTestImplementation(libs.androidx.espresso.intents)
 
 
+    //Test-Mock-Android
+    androidTestImplementation(libs.mock)
+
+    //Test-Truth
+    testImplementation(libs.truth)
+
+    //Test-Turbine
+    testImplementation(libs.turbine)
+
+    //Test-Core
+    testImplementation(libs.core.testing)
+
+    //Test-Hilt
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    //Test-Fragment
+    debugImplementation(libs.fragment.testing)
 
     // Hilt
     implementation(libs.hilt.android)

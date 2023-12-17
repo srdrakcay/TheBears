@@ -11,6 +11,6 @@
     <string name="socket_status">Socket Status:
 </string>
     <string name="socket_btc">BTC:</string>
-
+<string name="txt_btn">Sign Out</string>
 
 </resources>
