@@ -1,4 +1,4 @@
-package com.serdar.thebears.profile
+package com.serdar.thebears.ui
 
 import android.app.Application
 import dagger.hilt.android.testing.CustomTestApplication

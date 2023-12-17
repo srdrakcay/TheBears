@@ -1,10 +1,8 @@
-package com.serdar.thebears.profile
+package com.serdar.thebears.ui
 
 import android.app.Application
 import android.content.Context
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.runner.AndroidJUnitRunner
-import com.serdar.thebears.HiltTestActivity
 import dagger.hilt.android.testing.HiltTestApplication
 
 class TestRunner: AndroidJUnitRunner(){

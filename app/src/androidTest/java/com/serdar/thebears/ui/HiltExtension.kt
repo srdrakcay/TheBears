@@ -1,4 +1,4 @@
-package com.serdar.thebears.profile
+package com.serdar.thebears.ui
 
 import android.content.ComponentName
 import android.content.Intent

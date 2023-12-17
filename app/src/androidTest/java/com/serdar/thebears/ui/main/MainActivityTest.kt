@@ -1,4 +1,4 @@
-package com.serdar.thebears.profile.ui
+package com.serdar.thebears.ui.main
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -12,7 +12,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.serdar.profile.ui.ProfileFragment
 import com.serdar.thebears.MainActivity
 import com.serdar.thebears.R
-import com.serdar.thebears.profile.launchFragmentInHiltContainer
+import com.serdar.thebears.ui.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -24,7 +24,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class ProfileFragmentTest {
+class MainActivityTest {
 
     @get: Rule
     var hiltRule = HiltAndroidRule(this)
