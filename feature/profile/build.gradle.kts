@@ -70,7 +70,7 @@ dependencies {
     testImplementation(libs.mock)
     testImplementation(libs.mockk.mockk)
     testImplementation(libs.mockk.android)
-    testImplementation(libs.mock.android)
+    androidTestImplementation(libs.mock.android)
     testImplementation(libs.mockito.inline)
     testImplementation(libs.truth)
     testImplementation(libs.turbine)
