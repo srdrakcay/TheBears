@@ -1,5 +1,6 @@
 package com.serdar.home.ui
 
+import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -12,12 +13,12 @@ import com.serdar.common.extensions.combineString
 import com.serdar.common.extensions.notShow
 import com.serdar.common.extensions.show
 import com.serdar.home.R
-import com.serdar.localization.R as localizationR
 import com.serdar.home.databinding.FragmentHomeBinding
 import com.serdar.socket.data.SocketStateManager
 import com.serdar.socket.util.Difference
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import com.serdar.localization.R as localizationR
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -73,6 +74,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 .collect {
                     when (it) {
                         SocketStateManager.Connected -> {
+                            Log.e("TAG", "setSocketEvent: Connected")
                             setSubscribeSocketChannelNames()
                             binding.txtCryptoBtcPrice.text =
                                 socketStatus.combineString(it.toString())
@@ -80,28 +82,38 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         }
 
                         SocketStateManager.Connecting -> {
+                            Log.e("TAG", "setSocketEvent: Connecting")
+
                             binding.txtCryptoBtcPrice.text =
                                 socketStatus.combineString(it.toString())
 
                         }
 
                         SocketStateManager.Disconnected -> {
+                            Log.e("TAG", "setSocketEvent: Disconnected")
+
                             binding.txtCryptoBtcPrice.text =
                                 socketStatus.combineString(it.toString())
 
                         }
 
                         SocketStateManager.Disconnecting -> {
+                            Log.e("TAG", "setSocketEvent: Disconnecting")
+
                             binding.txtCryptoBtcPrice.text =
                                 socketStatus.combineString(it.toString())
 
                         }
 
                         is SocketStateManager.Error -> {
+                            Log.e("TAG", "setSocketEvent: Error")
+
                             setUnsubscribeSocketChannelNames()
                         }
 
                         is SocketStateManager.Price -> {
+                            Log.e("TAG", "setSocketEvent: Price")
+
                             if (it.channel == PRICE_CHANNEL_NAME) {
                                 setExchange(it.exchange)
                                 binding.txtCryptoBtcPrice.text =
